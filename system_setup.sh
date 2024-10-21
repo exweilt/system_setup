@@ -5,12 +5,12 @@ $REPOS_DIRECTORY="${HOME_DIRECTORY}repos/"
 
 pacman -Syu --noconfirm
 
-pacman -S base-devel git libx11 libxft xorg-server xorg-xinit terminus-font --noconfirm
+pacman -S base-devel git libx11 libxft xorg-server xorg-xinit terminus-font --noconfirm --needed
 
-pacman -S tldr --noconfirm
-pacman -S code --noconfirm
-pacman -S micro --noconfirm
-pacman -S neovim --noconfirm
+pacman -S tldr --noconfirm --needed
+pacman -S code --noconfirm --needed
+pacman -S micro --noconfirm --needed
+pacman -S neovim --noconfirm --needed
 
 if [ -d "/home/lex/" ]; then
     mkdir /home/lex/repos/ 2> /dev/null
