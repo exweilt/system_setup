@@ -3,6 +3,8 @@
 $HOME_DIRECTORY="/home/lex/"
 $REPOS_DIRECTORY="${HOME_DIRECTORY}repos/"
 
+pacman -Syu --noconfirm
+
 pacman -S base-devel git libx11 libxft xorg-server xorg-xinit terminus-font --noconfirm
 
 pacman -S tldr --noconfirm
