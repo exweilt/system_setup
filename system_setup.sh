@@ -70,6 +70,9 @@ echo "source ${HOME_DIRECTORY}/.config/zoxide.init" >> "${HOME_DIRECTORY}/.bashr
 # Set Up The Fuck ==============================================
 echo "eval \"\$(thefuck --alias)\"" >> "${HOME_DIRECTORY}/.bashrc"
 
+# Set Up Pacman alias ==========================================
+echo "alias p=\"sudo pacman -S\"" >> "${HOME_DIRECTORY}/.bashrc"
+
 
 
 # cd "${REPOS_DIRECTORY}/st" ; makepkg -si
