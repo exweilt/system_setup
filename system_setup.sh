@@ -52,6 +52,7 @@ pacman -S gimp --noconfirm --needed
 pacman -S zoxide --noconfirm --needed
 pacman -S alacritty --noconfirm --needed
 pacman -S flameshot --noconfirm --needed # For taking screenshots
+pacman -S thefuck --noconfirm --needed
 
 git clone git://git.suckless.org/st "${REPOS_DIRECTORY}/st"
 git clone git://git.suckless.org/dmenu "${REPOS_DIRECTORY}/dmenu"
@@ -60,12 +61,15 @@ git clone https://aur.archlinux.org/yay.git "${REPOS_DIRECTORY}/yay"
 git clone https://aur.archlinux.org/librewolf-bin.git "${REPOS_DIRECTORY}/librewolf"
 
 # Set Up Zoxide ===============================================
-
 mkdir "${HOME_DIRECTORY}/.config" 2> /dev/null
 touch "${HOME_DIRECTORY}/.config/zoxide.init"
 zoxide init bash --cmd cd > "${HOME_DIRECTORY}/.config/zoxide.init"
 touch "${HOME_DIRECTORY}/.bashrc"
 echo "source ${HOME_DIRECTORY}/.config/zoxide.init" >> "${HOME_DIRECTORY}/.bashrc"
+
+# Set Up The Fuck ==============================================
+echo "eval \"\$(thefuck --alias)\"" >> "${HOME_DIRECTORY}/.bashrc"
+
 
 
 # cd "${REPOS_DIRECTORY}/st" ; makepkg -si
