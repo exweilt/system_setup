@@ -1,11 +1,11 @@
-!#/bin/bash
+#!/bin/bash
 
 # TODO: Make sure to add extra and multilib repos in pacman
 
 # Constants ===================================================
 USERNAME="lex"
-$HOME_DIRECTORY="/home/${USERNAME}"
-$REPOS_DIRECTORY="${HOME_DIRECTORY}/repos"
+HOME_DIRECTORY="/home/${USERNAME}"
+REPOS_DIRECTORY="${HOME_DIRECTORY}/repos"
 
 # Run As Root =================================================
 if [ "$EUID" -ne 0 ]; then
@@ -13,11 +13,11 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-if [ -d "${HOME_DIRECTORY}" ]; then
-    echo "The home directory <${HOME_DIRECTORY}> is present!"
-    echo "Aborting!!!"
-    exit 1
-fi
+# if [ -d "${HOME_DIRECTORY}" ]; then
+#     echo "The home directory <${HOME_DIRECTORY}> is present!"
+#     echo "Aborting!!!"
+#     exit 1
+# fi
 
 # Add User ====================================================
 useradd --shell /bin/bash "${USERNAME}"
