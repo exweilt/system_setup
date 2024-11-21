@@ -53,6 +53,8 @@ pacman -S zoxide --noconfirm --needed
 pacman -S alacritty --noconfirm --needed
 pacman -S flameshot --noconfirm --needed # For taking screenshots
 pacman -S thefuck --noconfirm --needed
+pacman -S fd --noconfirm --needed
+pacman -S lf --noconfirm --needed
 
 git clone git://git.suckless.org/st "${REPOS_DIRECTORY}/st"
 git clone git://git.suckless.org/dmenu "${REPOS_DIRECTORY}/dmenu"
@@ -69,6 +71,19 @@ echo "source ${HOME_DIRECTORY}/.config/zoxide.init" >> "${HOME_DIRECTORY}/.bashr
 
 # Set Up The Fuck ==============================================
 echo "eval \"\$(thefuck --alias)\"" >> "${HOME_DIRECTORY}/.bashrc"
+
+# Set Up NeoVim
+# pacman -S xclip
+# pacman -S wl-clipboard
+pacman -S ttf-0xproto-nerd
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+
+# SetUp lf 
+pacman -S ranger # for rifle
+echo "export OPENER='rifle'" >> "${HOME_DIRECTORY}/.bashrc"
+echo "export EDITOR='nvim'" >> "${HOME_DIRECTORY}/.bashrc"
+curl https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.sh -o ~/.config/lf/lfcd.sh
+cat ./lfcd_patch.txt >> "${HOME_DIRECTORY}/.bashrc"
 
 # Set Up Pacman alias ==========================================
 echo "alias p=\"sudo pacman -S\"" >> "${HOME_DIRECTORY}/.bashrc"
