@@ -22,6 +22,7 @@ fi
 # Add User ====================================================
 useradd --shell /bin/bash "${USERNAME}"
 usermod -aG wheel "${USERNAME}"
+usermod -aG audio "${USERNAME}"
 mkdir "${HOME_DIRECTORY}" 2> /dev/null
 mkdir "${REPOS_DIRECTORY}" 2> /dev/null
 # TODO: edit sudoers file
@@ -57,6 +58,15 @@ git clone git://git.suckless.org/dmenu "${REPOS_DIRECTORY}/dmenu"
 git clone git://git.suckless.org/dwm "${REPOS_DIRECTORY}/dwm"
 git clone https://aur.archlinux.org/yay.git "${REPOS_DIRECTORY}/yay"
 git clone https://aur.archlinux.org/librewolf-bin.git "${REPOS_DIRECTORY}/librewolf"
+
+# Set Up Zoxide ===============================================
+
+mkdir "${HOME_DIRECTORY}/.config" 2> /dev/null
+touch "${HOME_DIRECTORY}/.config/zoxide.init"
+zoxide init bash --cmd cd > "${HOME_DIRECTORY}/.config/zoxide.init"
+touch "${HOME_DIRECTORY}/.bashrc"
+echo "source ${HOME_DIRECTORY}/.config/zoxide.init" >> "${HOME_DIRECTORY}/.bashrc"
+
 
 # cd "${REPOS_DIRECTORY}/st" ; makepkg -si
 # cd "${REPOS_DIRECTORY}/dmenu" ; makepkg -si
